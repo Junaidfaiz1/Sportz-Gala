@@ -7,6 +7,7 @@ const Navbar = lazy(() => import('./components/Navbar'))
 const Poster = lazy(() => import('./components/Poster'))
 const UpcomingEvents = lazy(() => import('./components/UpcomingEvents'))  
 const MatchCountDown = lazy(() => import('./components/MatchCountDown'))
+const TopPlayers = lazy(() => import('./components/TopPlayers'))
 
 
 const Layout: React.FC = () => {
@@ -18,6 +19,7 @@ const Layout: React.FC = () => {
       <Poster/>
       <UpcomingEvents/>
       <MatchCountDown/>
+      <TopPlayers/>
     </div>
   )
 }
