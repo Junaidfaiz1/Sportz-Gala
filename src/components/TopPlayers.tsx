@@ -38,43 +38,51 @@ const players = [
 
 const PlayerSlider: React.FC = () => {
   return (
-    <div className="bg-[#000000] px-6 py-12 text-white">
+    <div className="bg-[#000000] px-4 py-8 text-white sm:px-6 sm:py-12">
       <div className="text-center">
         <div className="flex justify-center">
-          <img src={ball} className="h-12 w-12" alt="" />
+          <img src={ball} className="h-8 w-8 sm:h-12 sm:w-12" alt="" />
         </div>
-        <p className="text-sm tracking-wide text-yellow-400 uppercase">
+        <p className="text-xs tracking-wide text-yellow-400 uppercase sm:text-sm">
           Our Players, Our Pride
         </p>
-        <h2 className="mt-2 text-3xl font-bold">OUR TALENTED PLAYERS</h2>
+        <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
+          OUR TALENTED PLAYERS
+        </h2>
       </div>
 
       {/* Swiper Slider */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        slidesPerView={4}
-        spaceBetween={40}
+        slidesPerView={1}
+        spaceBetween={20}
         navigation
         loop={true}
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         breakpoints={{
-          640: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
+          320: { slidesPerView: 1, spaceBetween: 10 },
+          480: { slidesPerView: 2, spaceBetween: 15 },
+          768: { slidesPerView: 3, spaceBetween: 20 },
+          1024: { slidesPerView: 4, spaceBetween: 30 },
         }}
-        className="mt-10"
+        className="mt-6 px-2 sm:mt-10"
       >
         {players.map((player, index) => (
-          <SwiperSlide key={index} className="text-center">
-            <div className="rounded-lg bg-white p-4 text-black shadow-lg">
+          <SwiperSlide key={index} className="pb-12 text-center">
+            <div className="transform rounded-lg bg-white p-3 text-black shadow-lg transition-transform duration-300 hover:scale-105 sm:p-4">
               <img
                 src={player.image}
                 alt={player.name}
-                className="h-60 w-full rounded-md object-cover"
+                className="h-40 w-full rounded-md object-cover sm:h-60"
+                loading="lazy"
               />
-              <h3 className="mt-3 text-xl font-semibold">{player.name}</h3>
-              <p className="text-gray-500">{player.role}</p>
+              <h3 className="mt-2 truncate text-lg font-semibold sm:mt-3 sm:text-xl">
+                {player.name}
+              </h3>
+              <p className="text-sm text-gray-500 sm:text-base">
+                {player.role}
+              </p>
             </div>
           </SwiperSlide>
         ))}

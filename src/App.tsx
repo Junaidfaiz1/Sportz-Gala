@@ -9,6 +9,7 @@ const UpcomingEvents = lazy(() => import("./components/UpcomingEvents"));
 const MatchCountDown = lazy(() => import("./components/MatchCountDown"));
 const TopPlayers = lazy(() => import("./components/TopPlayers"));
 const FAQcomponent = lazy(() => import("./components/FAQcomponent"));
+const Footer = lazy(() => import("./components/Footer"));
 
 const Layout: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const Layout: React.FC = () => {
       <MatchCountDown />
       <TopPlayers />
       <FAQcomponent />
+      <Footer />
     </div>
   );
 };
